@@ -57,6 +57,7 @@ public class ProjectController {
     @Operation(summary = "Delete project by Id")
     public ResponseEntity<Void> deleteProjectById(@PathVariable @Min(1) Long projectId) {
         projectService.deleteById(projectId);
+
         return ResponseEntity.ok().build();
     }
 }

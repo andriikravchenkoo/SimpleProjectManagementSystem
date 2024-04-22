@@ -7,6 +7,8 @@ import com.andriikravchenkoo.spms.simpleprojectmanagementsystem.exception.respon
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -53,6 +55,32 @@ public class GlobalExceptionHandler {
                         exception.getMessage());
 
         return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ErrorResponse> handleBadCredentialsException(
+            BadCredentialsException exception) {
+        ErrorResponse errorResponse =
+                new ErrorResponse(
+                        new Date(),
+                        HttpStatus.UNAUTHORIZED.value(),
+                        HttpStatus.UNAUTHORIZED,
+                        exception.getMessage());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(InternalAuthenticationServiceException.class)
+    public ResponseEntity<ErrorResponse> handleInternalAuthenticationServiceException(
+            InternalAuthenticationServiceException exception) {
+        ErrorResponse errorResponse =
+                new ErrorResponse(
+                        new Date(),
+                        HttpStatus.UNAUTHORIZED.value(),
+                        HttpStatus.UNAUTHORIZED,
+                        exception.getMessage());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

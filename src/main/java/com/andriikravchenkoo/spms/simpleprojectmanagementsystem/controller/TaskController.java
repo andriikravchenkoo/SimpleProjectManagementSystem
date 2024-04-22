@@ -68,6 +68,7 @@ public class TaskController {
     public ResponseEntity<?> patchUpdateTaskStatus(
             @PathVariable Long taskId, @RequestParam("taskStatus") TaskStatus taskStatus) {
         taskFacade.processUpdateStatusTask(taskStatus, taskId);
+
         return ResponseEntity.ok().build();
     }
 
@@ -75,6 +76,7 @@ public class TaskController {
     @Operation(summary = "Delete task by Id")
     public ResponseEntity<Void> deleteTaskById(@PathVariable @Min(1) Long taskId) {
         taskService.deleteById(taskId);
+
         return ResponseEntity.ok().build();
     }
 }
