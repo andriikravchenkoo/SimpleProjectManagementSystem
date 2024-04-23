@@ -20,7 +20,7 @@ CREATE TABLE tasks (
                        description TEXT,
                        status task_status NOT NULL,
                        project_id INTEGER NOT NULL,
-                       assigned_user_id INTEGER,
+                       assigned_user_id INTEGER NOT NULL,
                        FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
                        FOREIGN KEY (assigned_user_id) REFERENCES users(id)
 );

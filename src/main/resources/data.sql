@@ -15,8 +15,8 @@ INSERT INTO tasks (title, description, status, project_id, assigned_user_id)
 VALUES ('Design homepage layout', 'Create wireframes and mockups for the new homepage design', 'TODO', 1, 1),
        ('Implement user authentication', 'Develop login and registration functionality', 'IN_PROGRESS', 1, 2),
        ('Test mobile app on iOS devices', 'Conduct testing on various iOS devices to identify bugs', 'DONE', 2, 3),
-       ('Optimize database queries', 'Identify and optimize slow-performing queries', 'TODO', 3, NULL),
-       ('Update API documentation', 'Document changes made to the API for future reference', 'IN_PROGRESS', 3, NULL);
+       ('Optimize database queries', 'Identify and optimize slow-performing queries', 'TODO', 3, 3),
+       ('Update API documentation', 'Document changes made to the API for future reference', 'IN_PROGRESS', 3, 4);
 
 
 
