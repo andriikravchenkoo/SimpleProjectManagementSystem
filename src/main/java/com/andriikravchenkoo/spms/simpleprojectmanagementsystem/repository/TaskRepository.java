@@ -23,7 +23,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     @Query(
             value = "UPDATE tasks SET status = CAST(?1 AS task_status) WHERE id = ?2",
             nativeQuery = true)
-    void updateStatus(String taskStatus, Long id);
+    void updateStatus(String status, Long id);
 
     @Query(
             value =

@@ -15,9 +15,9 @@ public interface TaskService {
 
     Task save(Task task);
 
-    void updateStatus(TaskStatus taskStatus, Long id);
+    void updateStatus(TaskStatus status, Long id);
 
     void deleteById(Long id);
 
-    boolean isTaskAssignedToUser(Long taskId);
+    boolean isTaskAssignedToUser(Long id);
 }

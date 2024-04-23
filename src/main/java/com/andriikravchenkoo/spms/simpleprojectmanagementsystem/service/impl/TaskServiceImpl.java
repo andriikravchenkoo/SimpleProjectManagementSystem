@@ -43,8 +43,8 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void updateStatus(TaskStatus taskStatus, Long id) {
-        taskRepository.updateStatus(taskStatus.name(), id);
+    public void updateStatus(TaskStatus status, Long id) {
+        taskRepository.updateStatus(status.name(), id);
     }
 
     @Override
@@ -53,8 +53,8 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public boolean isTaskAssignedToUser(Long taskId) {
+    public boolean isTaskAssignedToUser(Long id) {
         return taskRepository.isTaskAssignedToUser(
-                taskId, JwtAuthenticationFilter.getCurrentUserEmail());
+                id, JwtAuthenticationFilter.getCurrentUserEmail());
     }
 }
